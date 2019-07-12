@@ -1,7 +1,10 @@
+const server = require('./api/server');
+require('dotenv').config()
+
 /*
 play this: https://www.youtube.com/watch?v=d-diB65scQU
 
-Sing along:
+Sing along: 😅 🎶
 
 here's a little code I wrote, you might want to read it really slow, don't worry be happy
 in every line there may be trouble, but if you worry you make it double, don't worry, be happy
@@ -12,3 +15,7 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
+
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => console.log(`Server live at port ${PORT}`));
