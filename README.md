@@ -24,15 +24,25 @@ In this challenge, create a web API around the following resources: `Projects` a
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [x] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+  - Learnt about `Routing` and `Middleware` in Express.
 
-- [ ] Describe a Resource?
+- [x] Describe Middleware?
 
-- [ ] What can the API return to help clients know if a request was successful?
+  - Middleware is a function that have access to the request, the response, and the next function which executes the  following middleware. It process its containing logic then ends or call next function depending on its logic.
 
-- [ ] How can we partition our application into sub-applications?
+- [x] Describe a Resource?
+
+  - A resource is data or information on an API that can be access on a URI.
+
+- [x] What can the API return to help clients know if a request was successful?
+
+  - A success status code of `200` and maybe a `response message`.
+
+- [x] How can we partition our application into sub-applications?
+
+  - We can partition our applications using the `Router()` in Express `e.g const eg = server.Router()`, then use the routes defined in `eg` in the server by `server.use('/route', eg)`.
 
 ## Project Setup
 
@@ -73,8 +83,8 @@ The `projectModel.js` helper includes an extra method called `getProjectActions(
 
 Design and build the necessary endpoints to:
 
-- [ ] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
-- [ ] Retrieve the list of actions for a project.
+- [x] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
+- [x] Retrieve the list of actions for a project.
 
 ### Database Schemas
 
@@ -87,7 +97,16 @@ The _schemas_ (properties and data type of each property) used to store and retr
 | id          | number    | no need to provide it when creating projects, the database will generate it |
 | name        | string    | required.                                                                   |
 | description | string    | required.                                                                   |
-| completed   | boolean   | used to indicate if the project has been completed, not required            |
+| completed   | boolean   | used to indicate if the project has been completed, not required          |
+
+| HTTP VERB |       |
+|--------|---|
+| GET | `/api/projects`  |
+| GET | `/api/projects/:id`  |
+| GET | `/api/projects/:id/actions`  |
+| POST | `/api/projects`  |
+| PUT |  `/api/projects/id` |
+| DELETE | `/api/projects/:id`  |
 
 #### Actions
 
@@ -102,6 +121,14 @@ The _schemas_ (properties and data type of each property) used to store and retr
 We have provided test data for all the resources.
 
 Now that we have a way to add, update, remove and retrieve data from the provided database, it's time to work on the API.
+
+| HTTP VERB |       |
+|--------|---|
+| GET | `/api/actions`  |
+| GET | `/api/actions/:id`  |
+| POST | `/api/actions`  |
+| PUT |  `/api/actions/id` |
+| DELETE | `/api/actions/:id`  |
 
 ## Stretch Goal
 
